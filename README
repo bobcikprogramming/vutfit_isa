@@ -1,0 +1,40 @@
+Projekt:		Klient POP3 s podporou TLS
+Vypracoval:	Bobčík Pavel
+VUT login:	xbobci03
+Datum:		23. října 2021
+
+Popis:
+  Program slouží jako klient umožňující stahování elektronické pošty pomocí nešifrované varianty POP3, tak i šifrovaných variant SSL/TLS. Při spuštění pouze s povinnými parametry dojde k navázání nešifrované komunikace POP3 a uložení všech (nových i starých) zpráv do uvedené složky. Soubor se zprávou bude pojmenován dle předmětu zprávy. Pro šifrovanou variantu slouží parametry -T a -S. Dalšími parametry, jenž budou uvedeny dále, lze měnit funkcionalitu klienta.
+
+Popis povinných parametrů:
+  <server> 	- IP adresa nebo doménové jméno serveru
+  -a <auth_file>	- soubor obsahující přihlašovací údaje
+		- obsah souboru:
+			username = jmeno
+			password = heslo
+  - o <out_dir>	- adresář, do kterého se budou ukládat zprávy
+
+Popis volitelných parametrů:
+  - T		- zahajuje SSL komunikaci
+  - S		- zahajuje TLS komunikaci
+  - c <certfile>	- soubor s certifikáty
+  - C <certaddr>	- adresář, ve kterém se mají vyhledávat certifikáty
+  - d 		- nastaví smazání zpráv
+  - n 		- nastaví stažení pouze nových zpráv
+
+Spuštění:
+  ./popcl <server> [-p <port>] [-T|-S [-c <certfile>] [-C <certaddr>]] [-d] [-n] -a <auth_file> -o <out_dir>
+
+Soubory:
+  - main.cpp
+  - main.hpp
+  - parser.cpp
+  - parser.hpp
+  - Makefile
+  - manual.pdf
+  - README.txt
+
+Makefile:
+  - make		- přeložení projektu
+  - make clean	- smazání souborů *.o a popcl
+
